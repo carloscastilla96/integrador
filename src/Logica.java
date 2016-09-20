@@ -12,7 +12,7 @@ public class Logica implements Observer {
 		con.addObserver(this);
 		Thread hilo = new Thread(con);
 		hilo.start();
-		System.out.println("sizas");
+
 
 	}
 
@@ -20,10 +20,13 @@ public class Logica implements Observer {
 	public void update(Observable o, Object arg) {
 
 		if (arg instanceof String) {
-			String mensaje = (String) arg;
-			System.out.println(mensaje);
+	
 		} else if (arg instanceof Usuario) {
-			// validar(arg);
+		Usuario receivedUser= (Usuario) arg; 
+		String contraseña=receivedUser.getContraseña(); 
+		String nombre=receivedUser.getNombre(); 
+		System.out.println(contraseña);
+		System.out.println(nombre);
 		}
 
 	}
