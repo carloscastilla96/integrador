@@ -1,3 +1,5 @@
+package integracionredesandroid;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,6 +12,9 @@ import java.net.MulticastSocket;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.Observable;
+import comun.*;
+
+import comun.Usuario;
 
 public class Conexion extends Observable implements Runnable {
 
@@ -78,16 +83,6 @@ public class Conexion extends Observable implements Runnable {
 				DatagramPacket paqueteRecibido = recibir();
 				Object objetoDeserializado = deserializar(paqueteRecibido.getData());
 				Thread.sleep(100);
-				if (objetoDeserializado != null) {
-					if (objetoDeserializado instanceof Usuario) {
-						System.out.println("llego un objeto usuario");
-						Usuario usuarioRequest = (Usuario) objetoDeserializado;
-						setChanged();
-						notifyObservers(usuarioRequest);
-						clearChanged();
-					}
-
-				}
 				setChanged();
 				notifyObservers(objetoDeserializado);
 				clearChanged();

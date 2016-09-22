@@ -1,11 +1,16 @@
+package integracionredesandroid;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.MenuSelectionManager;
 
+import comun.Usuario;
+
 public class Logica implements Observer {
 
 	private Conexion con;
+	private ArrayList<Usuario> usuarios; 
 
 	public Logica() {
 		con = new Conexion();
@@ -19,14 +24,14 @@ public class Logica implements Observer {
 	public void update(Observable o, Object arg) {
 
 		if (arg instanceof Usuario) {
-			System.out.println("holi");
 			Usuario receivedUser = (Usuario) arg;
-			String contraseña = receivedUser.getContraseña();
+			String contraseÃ±a= receivedUser.getContraseÃ±a();
 			String nombre = receivedUser.getNombre();
-			System.out.println(contraseña);
 			System.out.println(nombre);
+			System.out.println(contraseÃ±a);
 		}
 
 	}
+	
 
 }
