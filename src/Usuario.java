@@ -1,28 +1,29 @@
 
-public class Usuario {
+import java.io.Serializable;
 
-	private String nombre, contraseña;
-	private int ID;
+/**
+ * Created by 1144090943 on 19/09/2016.
+ */
 
-	public Usuario(String nombre, String contraseña, int iD) {
+public class Usuario implements Serializable {
 
-		this.nombre = nombre;
-		this.contraseña = contraseña;
-		this.ID = iD;
-	}
+    private String nombre, contraseña;
 
-	public String getNombre() {
-		return nombre;
-	}
 
-	public String getContraseña() {
-		return contraseña;
-	}
+    public Usuario(String nombre, String contraseña) {
 
-	public int getID() {
-		return ID;
-	}
-	
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
 
 
 }

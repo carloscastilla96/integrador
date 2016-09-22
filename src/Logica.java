@@ -13,20 +13,18 @@ public class Logica implements Observer {
 		Thread hilo = new Thread(con);
 		hilo.start();
 
-
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
 
-		if (arg instanceof String) {
-	
-		} else if (arg instanceof Usuario) {
-		Usuario receivedUser= (Usuario) arg; 
-		String contraseña=receivedUser.getContraseña(); 
-		String nombre=receivedUser.getNombre(); 
-		System.out.println(contraseña);
-		System.out.println(nombre);
+		if (arg instanceof Usuario) {
+			System.out.println("holi");
+			Usuario receivedUser = (Usuario) arg;
+			String contraseña = receivedUser.getContraseña();
+			String nombre = receivedUser.getNombre();
+			System.out.println(contraseña);
+			System.out.println(nombre);
 		}
 
 	}
